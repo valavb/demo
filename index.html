@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Eye Test</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/bf341fb126.js" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="wrapper container-fluid ps-0 pe-0">
+
+        <nav class="navbar navbar-expand-lg navbar-light site-bg">
+            <div class="container-fluid">
+              <img src="Images/logo.png" alt="" id="nav-logo" class="ps-4">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <div id="user" class="ms-auto me-4 text-white">
+
+                    <i class="fa-regular fa-circle-user"></i>&nbsp; 
+                    <span id="username">Username</span>&nbsp;
+                    <i class="fa-solid fa-angle-down"></i>
+
+                    <div class="user-details site-bg ps-4 pe-4 pt-3 shadow-lg">
+                        <i class="fa-regular fa-user"></i> Profile <br>
+                        <i class="fa-solid fa-arrow-right-from-bracket mt-3 pb-4"></i> Logout<br>
+                    </div>
+
+                </div>
+
+              </div>
+            </div>
+        </nav>
+
+        <section class="pb-4">
+
+            <div class="container">
+            
+                <div class="row">
+
+                   <div class="col-lg-9 ms-4">
+
+                        <div class="page-heading text-center mt-4">
+                            <span class="ps-4 pe-4 pt-2 pb-2 site-bg text-white h5">Real-Time AI Eye Exam</span> 
+                        </div>
+                        <button class="button-bg rounded border-0 text-white ps-4 pe-4 pt-2 pb-2">New Patient</button>
+
+                        <div class="form-area mt-3 text-white p-4">
+
+                            <form>
+
+                                <div class="row">
+                                    <div class="col-lg mt-2">
+                                        <label for="diabetes">Type of diabetes</label>
+                                        <select class="form-select mt-2" aria-label="Default select example" id="diabetes">
+                                            <option selected>Select</option>
+                                            <option value="type-1">Type 1</option>
+                                            <option value="type-2">Type 2</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg mt-2">
+                                        <label>Patient Information</label>
+                                        <input type="text" class="form-control mt-2" placeholder="First Name" id="first-name">
+                                    </div>
+                                    <div class="col-lg mt-2">
+                                        <label></label>
+                                        <input type="text" class="form-control mt-2" placeholder="Last Name" id="last-name">
+                                    </div>
+                                    <div class="col-lg mt-2">
+                                        <label>Patient ID</label>
+                                        <input type="text" class="form-control mt-2" placeholder="Patient ID" id="patient-id">
+                                    </div>
+                                </div>
+
+                                <div class="eye-image-upload">
+                                    <div class="row g-3 mt-1">
+
+                                        <div class="col-lg ps-4">
+    
+                                            <div class="fw-bold">
+                                                Left eye (OS) [Select Sample Images <i class="fa-solid fa-arrow-up-right-from-square" id="lefteye-tooltip"></i> ]
+                                                <div class="sample-image-left bg-white p-4">
+                                                    <div class="text-center text-black mb-3">Select Default Image</div>
+                                                    <input type="radio" id="left-image-1" name="sample-left-eye-image" value="/Images/lefteye-1.png"> <label for="left-image-1"><img src="Images/lefteye-1.png" alt="Left Eye 1" class="lefteye pe-2"></label><br>
+                                                    <input type="radio" id="left-image-2" name="sample-left-eye-image" value="/Images/lefteye-2.jpg"> <label for="left-image-2"><img src="Images/lefteye-2.jpg" alt="Left Eye 2" class="lefteye mt-2 pe-2"></label><br>
+                                                    <input type="radio" id="left-image-3" name="sample-left-eye-image" value="/Images/lefteye-3.jpg"> <label for="left-image-3"><img src="Images/lefteye-3.jpg" alt="Left Eye 3" class="lefteye mt-2 pe-2"></label><br>
+                                                    <input type="radio" id="left-image-4" name="sample-left-eye-image" value="/Images/lefteye-4.jpg"> <label for="left-image-4"><img src="Images/lefteye-4.jpg" alt="Left Eye 4" class="lefteye mt-2 pe-2"></label><br>
+                                                    <div class="mt-3 text-center">
+                                                        <button class="rounded border-0 button-bg text-white ps-3 pe-3 pt-1 pb-1" id="select-img-left">Select</button>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <span class="fw-normal text-success">Quality of image is good for AI report</span>
+                                            </div>
+    
+                                            <div class="input-group row mt-3">
+                                                <div class="drag-area col-lg text-center">
+                                                    <div class="icon"><i class="fa-solid fa-upload fs-2"></i></div>
+                                                    <header>Drop files here to upload or click to browse</header>
+                                                    <input type="file" hidden>
+                                                </div>
+                                            </div>
+                                           
+    
+                                        </div>
+                                        
+                                        <div class="col-lg righteye-upload-area">
+    
+                                            <div class="fw-bold">
+                                                Right eye (OS)[Select Sample Images <i class="fa-solid fa-arrow-up-right-from-square" id="righteye-tooltip"></i> ]
+                                                <div class="sample-image-right bg-white p-4">
+                                                    <div class="text-center text-black mb-3">Select Default Image</div>
+                                                    <input type="radio" id="right-image-1" name="sample-right-eye-image" value="/Images/lefteye-1.png"> <label for="left-image-1"><img src="Images/lefteye-1.png" alt="Left Eye 1" class="righteye pe-2"></label><br>
+                                                    <input type="radio" id="right-image-2" name="sample-right-eye-image" value="/Images/lefteye-2.jpg"> <label for="right-image-2"><img src="Images/lefteye-2.jpg" alt="Left Eye 2" class="righteye mt-2 pe-2"></label><br>
+                                                    <input type="radio" id="right-image-3" name="sample-right-eye-image" value="/Images/lefteye-3.jpg"> <label for="right-image-3"><img src="Images/lefteye-3.jpg" alt="Left Eye 3" class="righteye mt-2 pe-2"></label><br>
+                                                    <input type="radio" id="right-image-4" name="sample-right-eye-image" value="/Images/lefteye-4.jpg"> <label for="right-image-4"><img src="Images/lefteye-4.jpg" alt="Left Eye 4" class="righteye mt-2 pe-2"></label><br>
+                                                    <div class="mt-3 text-center">
+                                                        <button class="rounded border-0 button-bg text-white ps-3 pe-3 pt-1 pb-1" id="select-img-right">Select</button>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <span class="fw-normal text-success">Quality of image is good for AI report</span>
+                                            </div>
+    
+                                            <div class="input-group row mt-3">
+                                                <div class="drag-area-2 col-lg text-center">
+                                                    <div class="icon"><i class="fa-solid fa-upload fs-2"></i></div>
+                                                    <header>Drop files here to upload or click to browse</header>
+                                                    <input type="file" hidden>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+    
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                   </div>
+
+                   <div class="col-lg-2 ms-4">
+                    
+                    <div class="text-center report pt-3 pb-4 text-white">
+                        
+                        <span class="fw-bold">Report</span>    <br>
+                        <button class="button-bg rounded border-0 text-white ps-3 pt-1 pe-3 pb-1 mt-4 mb-4 download-pdf">Download PDF</button>
+                        
+                        <img src="Images/report-eye.png" alt="Laoding Eye" class="mt-lg-4 mb-4 pt-2 loading-eye"><br>
+
+                        <div class="mt-4 generate-report">Generate Report</div>
+                        <div>Usage : 1 Credit</div>
+
+                        <button class="border-0 rounded bg-danger text-white ps-3 pe-3 pt-2 pb-2 mt-4 mb-4" type="reset">Clear All</button>
+
+                        <div class="pb-4">Credit Left : 383</div>
+
+                    </div>
+
+                    
+
+                   </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+    
+    <!-- JS -->
+    <script src="JavaScript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>

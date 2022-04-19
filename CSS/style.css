@@ -1,0 +1,154 @@
+/* Applying border-box to all element */
+html {
+    box-sizing: border-box;
+}
+
+/* inherit border-box on all elements in the universe and before and after */
+*,*:before,*:after{
+    box-sizing: inherit;
+}  
+/* Common CSS */
+.site-bg{
+    background-color: #304151;
+}
+
+.button-bg{
+    background-color: #FE7303;
+}
+/* Navigation bar */
+#nav-logo{
+    max-width: 10rem;
+}
+
+.user-details{
+    position: absolute;
+    display: none;
+}
+
+/* Drag and Drop */
+.drag-area,.drag-area-2{
+    height: 300px;
+    border: 2px solid #E0E0E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .active{
+    border: 1px solid #000;
+  }
+  .drag-area .icon,.drag-area-2 .icon{
+      color:#737373;
+  }
+  
+  .drag-area header ,.drag-area-2 header{
+      color: #B7B7B7; 
+  }
+  
+  .drag-area img,.drag-area-2 img{
+    height: 100%;
+    width: 100% ;
+    object-fit: contain;
+    
+  }
+
+/* Form */
+.form-area{
+    background-color: rgba(48, 65, 81, 0.9);
+}
+
+section{
+    background: url('/Images/main-bg.jpg');
+    background-size: 100% 100%;
+}
+
+/* report */
+.report{
+    margin-top: 100px;
+    background-color: rgba(48, 65, 81, 0.9);
+}
+
+/* left eye */
+.lefteye,.righteye{
+    max-width: 10rem;
+    display: block;
+}
+
+.sample-image-left{
+    position: absolute;
+    visibility: hidden;
+    left: 32%;
+    top: 45px;
+    z-index:1;
+    opacity: 0;
+    transition: opacity 1s;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+}
+
+.sample-image-right{
+    position: absolute;
+    left:65%;
+    top:50px;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sample-image-left::after,.sample-image-right::after{
+    content: "";
+  position: absolute;
+  top: 55%;
+  right: 100%;
+  margin-top: -30px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+}
+
+.visible{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+
+#left-image-1,#left-image-2,#left-image-3,#left-image-4,#right-image-1,#right-image-2,#right-image-3,#right-image-4{
+    position: relative;
+    top: -35px;
+}
+
+#lefteye-tooltip,#righteye-tooltip,.fa-angle-down{
+    cursor: pointer;
+}
+
+
+/* Responsiveness */
+@media screen and (max-width: 1200px){
+    .report .download-pdf{
+        padding:0.3rem!important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .report .loading-eye{
+        margin: 0 auto!important;
+        display: block;
+    }
+
+    .report .generate-report{
+        margin-top: 0px!important;
+    }
+
+    .righteye-upload-area{
+        padding-left: 1.5rem!important;
+    }
+
+    .row .col-lg-9{
+        margin-left: 0px!important;
+    }
+
+    .row .col-lg-2{
+        margin-left: 0px!important;
+    }
+}
